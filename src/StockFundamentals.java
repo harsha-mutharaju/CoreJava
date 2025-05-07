@@ -18,21 +18,27 @@ public class StockFundamentals {
     }
 
     public String getTickerSymbol() {
+
         return tickerSymbol;
     }
     public int getSectorId() {
+
         return sectorId;
     }
     public int getSubSectorId() {
+
         return subSectorId;
     }
     public double getMarketCap() {
+
         return marketCap;
     }
 
     public void setMarketCap(double marketCap) {
+
         this.marketCap = marketCap;
     }
+
     public void stockFundamentalsDetails() {
         System.out.println("Ticker Symbol: " + this.getTickerSymbol());
         System.out.println("Sector Id: " + this.getSectorId());
@@ -41,8 +47,4 @@ public class StockFundamentals {
 
 
     }
-
-
-
-
 }

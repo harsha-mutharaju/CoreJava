@@ -28,6 +28,7 @@ public class Stock {
     }
 
     public String getTickerName() {
+
         return tickerName;
     }
 

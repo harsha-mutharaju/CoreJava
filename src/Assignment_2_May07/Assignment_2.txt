@@ -1,0 +1,13 @@
+1. Write a Java program to check if a string is a palindrome.
+""abba"",...are palindromes
+""abcd"", ""test"" are not palindromes
+
+2. Write a Java program to sort an array of elements using Bubble Sort"
+
+
+3. Write a Java program that creates class hierarchy for Employees Base class is Employee.
+Subclasses Manager, Developer and Tester Class should have properties like name, salary, job title,
+job duty(Build applications for Developers, Manage people for Manager, Test Applications for Tester
+Implement methods to calculate yearly bonus - Manager’s get 20%, Developers 10% and Tester 5% Manager also
+manage subordinates Employee has to be Manager or Developer or Tester.
+Write a method to calculate the total bonus handed out

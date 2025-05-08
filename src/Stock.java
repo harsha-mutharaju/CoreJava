@@ -5,6 +5,8 @@ public class Stock {
     private float currentRatio;
     public double marketCap;
 
+    public static String APPLICATION_NAME = "STOCK";
+
     public Stock(String tickerSymbol){
         this.tickerSymbol = tickerSymbol;
     }
@@ -63,5 +65,9 @@ public class Stock {
         System.out.println("Market Cap: " + this.getMarketCap());
 
 
+    }
+
+    public static void printAppName(){
+        System.out.println(APPLICATION_NAME);
     }
 }

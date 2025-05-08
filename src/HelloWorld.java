@@ -58,5 +58,10 @@ public class HelloWorld {
         amznStock.stockFundamentalsDetails();
 
 
+        System.out.println("App name " + Stock.APPLICATION_NAME);
+        Stock.APPLICATION_NAME = "Other Application";
+        Stock.printAppName();
+        appleStock.printAppName();
+
     }
 }

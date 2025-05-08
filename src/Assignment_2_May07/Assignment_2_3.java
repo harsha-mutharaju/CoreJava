@@ -40,11 +40,11 @@ abstract class Employee {
 
 
 class Manager extends Employee {
-    private List<Employee> subordinates;
+    private List<Employee> subOrdinate;
 
     public Manager(String name, double salary, String jobTitle) {
         super(name, salary, jobTitle);
-        subordinates = new ArrayList<>();
+        subOrdinate = new ArrayList<>();
     }
 
     @Override
@@ -59,11 +59,11 @@ class Manager extends Employee {
     }
 
     public void addSubordinate(Employee e) {
-        subordinates.add(e);
+        subOrdinate.add(e);
     }
 
-    public List<Employee> getSubordinates() {
-        return subordinates;
+    public List<Employee> getSubOrdinate() {
+        return subOrdinate;
     }
 }
 
@@ -118,19 +118,36 @@ public class Assignment_2_3 {
 
     public static void main(String[] args) {
 
-        Manager manager = new Manager("John", 7000, "Manager");
-        Developer developer = new Developer("Smith", 5000, "Developer");
-        Tester tester = new Tester("Alice", 4000, "Tester");
+        Manager manager = new Manager("Harsha", 7000, "Manager");
+        Developer developer = new Developer("Harry", 5000, "Developer");
+        Tester tester = new Tester("Vivek", 4000, "Tester");
+        Manager manager2 = new Manager("Bob", 7200, "Manager");
+        Developer developer2 = new Developer("Mathew", 5100, "Developer");
+        Tester tester2 = new Tester("Alice", 4000, "Tester");
+        Manager manager3 = new Manager("C", 7000, "Manager");
+        Developer developer3 = new Developer("S", 5100, "Developer");
+        Tester tester3 = new Tester("M", 3000, "Tester");
 
 
         manager.addSubordinate(developer);
+        manager.addSubordinate(developer2);
+        manager.addSubordinate(developer3);
         manager.addSubordinate(tester);
+        manager.addSubordinate(tester2);
+        manager.addSubordinate(tester3);
+
 
 
         List<Employee> employees = new ArrayList<>();
         employees.add(manager);
         employees.add(developer);
         employees.add(tester);
+        employees.add(manager2);
+        employees.add(developer2);
+        employees.add(tester2);
+        employees.add(manager3);
+        employees.add(developer3);
+        employees.add(tester3);
 
 
         for (Employee emp : employees) {
@@ -141,12 +158,13 @@ public class Assignment_2_3 {
             if (emp instanceof Manager) {
                 Manager m = (Manager) emp;
                 System.out.println("Subordinates of " + m.getName() + ":");
-                for (Employee subordinate : m.getSubordinates()) {
+                for (Employee subordinate : m.getSubOrdinate()) {
                     System.out.println("- " + subordinate.getName());
                 }
             }
 
             System.out.println("------------------------");
+
         }
 
 

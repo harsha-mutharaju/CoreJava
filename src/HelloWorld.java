@@ -1,3 +1,5 @@
+import inheritance.CheckingAccount;
+
 import java.math.BigDecimal;
 
 public class HelloWorld {
@@ -42,6 +44,15 @@ public class HelloWorld {
     static void playWithObjects(){
         Stock appleStock = new Stock("AAPL", "Apple Stock", 3.0f);
         Stock googleStock = new Stock("GOOGL", "Google Stock", 1.5f);
+        Stock newStock = new Stock("HARSHA" , "HAR");
+
+        System.out.println("checking overriden methods of hashcode , equals and toString");
+        System.out.println(newStock.toString());
+        System.out.println(appleStock.toString());
+        System.out.println(newStock.hashCode());
+        System.out.println("end of checking ");
+
+        System.out.println(appleStock.equals(newStock));
 
 
 //        System.out.println("Apple ticker symbol : " + appleStock.getTickerSymbol());
@@ -56,6 +67,8 @@ public class HelloWorld {
         //Stock teslaStock = new Stock("TESLA", "Tesla Stock", 3.0f, 125.00);
         StockFundamentals amznStock = new StockFundamentals("AMZN" , 1 , 20 , 12345.234);
         amznStock.stockFundamentalsDetails();
+
+        //System.out.println(CheckingAccount instanceof Account);
 
 
         System.out.println("App name " + Stock.APPLICATION_NAME);

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Stock {
 
     private String tickerName;
@@ -49,6 +51,30 @@ public class Stock {
     public boolean isGoodStock(){
         return this.getCurrentRatio() > 2;
     }
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "tickerName='" + tickerName + '\'' +
+                ", tickerSymbol='" + tickerSymbol + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Stock stock = (Stock) o;
+        return Objects.equals(tickerSymbol, stock.tickerSymbol);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(tickerSymbol);
+    }
+
+
+
+
 
 
     // In the Stock class, write a method to print stock details using System.out.println

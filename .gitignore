@@ -28,3 +28,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 /.idea/
+/postgresql-42.7.5.jar

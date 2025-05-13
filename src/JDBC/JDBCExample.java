@@ -1,6 +1,5 @@
 package JDBC;
 
-import org.postgresql.Driver;
 import java.sql.*;
 
 public class JDBCExample {
@@ -8,29 +7,26 @@ public class JDBCExample {
     private static final String USERNAME = "evr_sql_app";
     private static final String PASSWORD = "5LViU5pLkSjRHECec9NF4wRxxV";
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        //1. Load the Postgres Driver
+    public static void main(String[] args) throws SQLException , ClassNotFoundException {
+        // loading the postgres driver
         Class.forName("org.postgresql.Driver");
 
-        //2. Get the DB Connection
+
+        // create connection string
         Connection connection = DriverManager.getConnection(DB_HOST, USERNAME, PASSWORD);
-        String query = """
-                SELECT 
-                    SECTOR_ID, 
-                    SECTOR_NAME
-                 FROM ENDEAVOUR.SECTOR_LOOKUP
-                """;
-        //3. Create a statement
+        String query = "select * from endeavour.stock_fundamentals limit 10";
+
+        // create a statement
         PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-        //4. Execute the query
-        ResultSet resultSet = preparedStatement.executeQuery();
 
-        //Iterating through the ResultSet
-        while(resultSet.next()){
-            System.out.println("SECTOR ID " + resultSet.getInt("SECTOR_ID"));
-            System.out.println("SECTOR NAME " + resultSet.getString("SECTOR_NAME"));
+        //execute query
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            System.out.println(resultSet.getString(1));
+
         }
-//
+
+
     }
 }

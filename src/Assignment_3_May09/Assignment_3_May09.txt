@@ -1,0 +1,8 @@
+Write a Java program that uses List to store Person(id, name and age) objects
+Allow the user to input id, name and age.
+Support searching for a person by id and display the name and age.
+
+Write a method getStocksLookup that takes a connection and ticker symbol as input and prints the Ticker Symbol and Ticker Name
+
+Write a method getMultipleStockFundamentals that takes a connection and List of Ticker Symbols as inputs, and prints the Ticker Name, Market Cap for each of the Ticker Name in the values.
+The query used within the method should use the IN clause

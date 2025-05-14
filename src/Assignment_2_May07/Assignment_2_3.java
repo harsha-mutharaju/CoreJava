@@ -3,6 +3,13 @@ package Assignment_2_May07;
 import java.util.ArrayList;
 import java.util.List;
 
+//Write a Java program that creates class hierarchy for Employees Base class is Employee.
+//Subclasses Manager, Developer and Tester Class should have properties like name, salary, job title,
+//job duty(Build applications for Developers, Manage people for Manager, Test Applications for Tester
+//Implement methods to calculate yearly bonus - Manager’s get 20%, Developers 10% and Tester 5% Manager also
+//manage subordinates Employee has to be Manager or Developer or Tester.
+//Write a method to calculate the total bonus handed out
+
 abstract class Employee {
 
     private String name;
@@ -33,6 +40,16 @@ abstract class Employee {
                 "\nJob Title: " + jobTitle +
                 "\nJob Duty: " + jobDuty();
     }
+
+//    @Override
+//    public String toString() {
+//        final StringBuffer sb = new StringBuffer("Employee{");
+//        sb.append("name='").append(name).append('\'');
+//        sb.append(", salary=").append(salary);
+//        sb.append(", jobTitle='").append(jobTitle).append('\'');
+//        sb.append('}');
+//        return sb.toString();
+//    }
 
     abstract double calculateBonus();
     abstract String jobDuty();
@@ -120,11 +137,9 @@ public class Assignment_2_3 {
 
         Manager manager = new Manager("Harsha", 7000, "Manager");
         Developer developer = new Developer("Harry", 5000, "Developer");
-        Tester tester = new Tester("Vivek", 4000, "Tester");
-        Manager manager2 = new Manager("Bob", 7200, "Manager");
+        Tester tester = new Tester("krish", 4000, "Tester");
         Developer developer2 = new Developer("Mathew", 5100, "Developer");
         Tester tester2 = new Tester("Alice", 4000, "Tester");
-        Manager manager3 = new Manager("C", 7000, "Manager");
         Developer developer3 = new Developer("S", 5100, "Developer");
         Tester tester3 = new Tester("M", 3000, "Tester");
 
@@ -142,10 +157,8 @@ public class Assignment_2_3 {
         employees.add(manager);
         employees.add(developer);
         employees.add(tester);
-        employees.add(manager2);
         employees.add(developer2);
         employees.add(tester2);
-        employees.add(manager3);
         employees.add(developer3);
         employees.add(tester3);
 
@@ -153,7 +166,6 @@ public class Assignment_2_3 {
         for (Employee emp : employees) {
             System.out.println(emp.employeeDetails());
             System.out.println("Bonus for " + emp.getName() + ": " + String.format("%.2f", emp.calculateBonus()) + " $");
-
 
             if (emp instanceof Manager) {
                 Manager m = (Manager) emp;

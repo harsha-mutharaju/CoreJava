@@ -1,5 +1,7 @@
 package io.endeavour.stocks.dao;
 
+import io.endeavour.stocks.Exception.StockException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,8 +13,15 @@ public class BaseDAO {
 
     protected Connection connection;
 
-    public BaseDAO() throws ClassNotFoundException, SQLException {
-        Class.forName("org.postgresql.Driver");
-        this.connection = DriverManager.getConnection(DB_HOST, USERNAME, PASSWORD);
+    public BaseDAO() {
+
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+            this.connection = DriverManager.getConnection(DB_HOST, USERNAME, PASSWORD);
+        }
+        catch (Exception e) {
+            throw new StockException(e);
+        }
     }
 }

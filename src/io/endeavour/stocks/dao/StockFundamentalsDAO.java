@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StockFundamentalsDAO extends BaseDAO{
+public class StockFundamentalsDAO extends BaseDAO implements AutoCloseable{
 
     public StockFundamentalsDAO() throws SQLException, ClassNotFoundException {
         super();
@@ -32,5 +32,10 @@ public class StockFundamentalsDAO extends BaseDAO{
             stockFundamentalsVOList.add(stockFundamentalsVO);
         }
         return stockFundamentalsVOList;
+    }
+
+    @Override
+    public void close() throws Exception {
+        this.connection.close();
     }
 }

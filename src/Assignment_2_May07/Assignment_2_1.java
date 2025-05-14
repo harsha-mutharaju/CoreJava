@@ -11,7 +11,7 @@ public class Assignment_2_1
 
         System.out.println("\nEnter a String to check if it is a palindrome :\n");
         Scanner sc = new Scanner(System.in);
-        String str1 = new String("aaaaaaaa");
+        String str1 = sc.nextLine();
         String str2 = "";
 
         for(int i = str1.length()-1; i >= 0; i--){

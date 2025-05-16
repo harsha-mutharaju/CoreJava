@@ -3,11 +3,15 @@ package io.endeavour.stocks.service;
 import io.endeavour.stocks.dao.LookupDAO;
 import io.endeavour.stocks.dao.StockFundamentalsDAO;
 import io.endeavour.stocks.dao.TotalMarketStocksDAO;
+import io.endeavour.stocks.sort.StockFundamentalsCurrentRatioComparator;
 import io.endeavour.stocks.vo.SectorLookupVO;
 import io.endeavour.stocks.vo.StockFundamentalsVO;
 import io.endeavour.stocks.vo.TotalMarketStocksVO;
+import java.util.Collections;
+
 
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
 
 public class MarketAnalyticsService {
@@ -23,7 +27,10 @@ public class MarketAnalyticsService {
     }
 
     public List<SectorLookupVO> getSectorLookupVOs() throws SQLException {
-        return lookupDAO.getSectorLookupVOs();
+        List<SectorLookupVO> sectorLookupVOList = lookupDAO.getSectorLookupVOs();
+        Collections.sort(sectorLookupVOList);
+
+        return sectorLookupVOList;
 
     }
 
@@ -32,7 +39,37 @@ public class MarketAnalyticsService {
     }
 
     public List<StockFundamentalsVO> getStockFundamentalsVOs() throws SQLException {
-        return stockFundamentalsDAO.getStockFundamentalsVOList(); // ✅ instance call
+        List<StockFundamentalsVO> stockFundamentalsVOList = stockFundamentalsDAO.getStockFundamentalsVOList();
+//        System.out.println("after sorting market cap using comparable");
+//
+//        // sorting by comparable market cap
+//        Collections.sort(stockFundamentalsVOList);
+//        System.out.println(stockFundamentalsVOList);
+//
+//        // sorting by comparator current ratio
+//        Collections.sort(stockFundamentalsVOList, new StockFundamentalsCurrentRatioComparator());
+//        System.out.println("after sorting current ratio using comparator");
+//        System.out.println(stockFundamentalsVOList);
+
+
+        // anonymous class - sorting by sectorId : inline interface implementation
+        Collections.sort(stockFundamentalsVOList, new Comparator<StockFundamentalsVO>() {
+            @Override
+            public int compare(StockFundamentalsVO o1, StockFundamentalsVO o2) {
+                if(o1.getSectorId() < o2.getSectorId()){
+                    return -1;
+                }
+                else if(o1.getSectorId() > o2.getSectorId()){
+                    return 1;
+                }
+                return 0;
+            }
+        });
+
+        System.out.println("sorting by sector id");
+        System.out.println(stockFundamentalsVOList);
+        return stockFundamentalsVOList;
+
     }
 
 }

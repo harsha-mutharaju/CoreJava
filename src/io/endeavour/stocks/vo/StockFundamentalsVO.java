@@ -1,6 +1,8 @@
 package io.endeavour.stocks.vo;
 
-public class StockFundamentalsVO {
+import java.io.Serializable;
+
+public class StockFundamentalsVO implements Comparable<StockFundamentalsVO>{
     private String tickerSymbol;
     private int sectorId;
     private double marketCap;
@@ -40,4 +42,20 @@ public class StockFundamentalsVO {
         return sb.toString();
     }
 
+    @Override
+    public int compareTo(StockFundamentalsVO o) {
+        if(this.marketCap < o.getMarketCap()){
+            return -1;
+        }
+        else if(this.marketCap == o.getMarketCap())
+        {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+
+//        return this.getMarketCap().compareTo(o.getMarketCap());
+//    }
 }
+    }

@@ -31,17 +31,17 @@ public class StockAnalyticsApp {
         MarketAnalyticsService marketAnalyticsService = new MarketAnalyticsService(lookupDAO , totalMarketStocksDAO , stockFundamentalsDAO);
 
 
-        System.out.println("----- SectorLookup ------");
-        List<SectorLookupVO> sectorLookupVOList = marketAnalyticsService.getSectorLookupVOs();
-        for(SectorLookupVO sectorLookupVO : sectorLookupVOList){
-            System.out.println(sectorLookupVO);
-        }
-
-        System.out.println("----- TotalMarketStocks ------");
-        List<TotalMarketStocksVO> totalMarketStocksVOList = marketAnalyticsService.getTotalMarketStocksVOs();
-        for(TotalMarketStocksVO totalMarketStocksVO : totalMarketStocksVOList){
-            System.out.println(totalMarketStocksVO);
-        }
+//        System.out.println("----- SectorLookup ------");
+//        List<SectorLookupVO> sectorLookupVOList = marketAnalyticsService.getSectorLookupVOs();
+//        for(SectorLookupVO sectorLookupVO : sectorLookupVOList){
+//            System.out.println(sectorLookupVO);
+//        }
+//
+//        System.out.println("----- TotalMarketStocks ------");
+//        List<TotalMarketStocksVO> totalMarketStocksVOList = marketAnalyticsService.getTotalMarketStocksVOs();
+//        for(TotalMarketStocksVO totalMarketStocksVO : totalMarketStocksVOList){
+//            System.out.println(totalMarketStocksVO);
+//        }
 
         System.out.println("----- StockFundamentals ------");
         getTopStocks(marketAnalyticsService);

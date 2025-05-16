@@ -1,8 +1,9 @@
 package io.endeavour.stocks.vo;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class SectorLookupVO {
+public class SectorLookupVO implements Comparable<SectorLookupVO> {
     private Integer sectorId;
     private String sectorName;
 
@@ -39,4 +40,10 @@ public class SectorLookupVO {
         sb.append('}');
         return sb.toString();
     }
+
+    @Override
+    public int compareTo(SectorLookupVO o) {
+        return this.sectorName.compareTo(o.getSectorName());
+    }
 }
+
